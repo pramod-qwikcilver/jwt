@@ -2,17 +2,6 @@
 use Firebase\JWT\JWT;
 use Firebase\JWT\Key;
 require_once('../vendor/autoload.php');
-
-
-//echo "<pre>";
-//print_r($_POST);
-//die;
-//get data from postman
-//validate user against database
-//if success generate token and return json
-// if failed return error
-
-
 $secret_Key  = '68V0zWFrS72GbpPreidkQFLfj4v9m3Ti+DXc8OB0gcM=';
 
 $date   = new DateTimeImmutable();
@@ -38,15 +27,6 @@ $jwt =  JWT::encode(
     'HS512'
 );
 
-//$response = [
-//    'success' => 'true',
-//    'token' => $jwt
-//];
-//
-//header('Content-type: application/json');
-//echo json_encode($response);
-
-//die;
 $token = JWT::decode($jwt, new Key($secret_Key,'HS512'));
 echo "<br><br>";
 print_r($token);
